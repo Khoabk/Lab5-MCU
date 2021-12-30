@@ -29,20 +29,16 @@ void uart_communication_fsm()
 
 	case 0:
 	{
-
-
-	 if(send_signal)
+	 	if(send_signal)
 		{
-
 			state2 = 1;
-
 		}
+		
+		
 		break;
-
 	}
 	case 1:
 	{
-
 
 		if(receive_signal)
 		{
@@ -64,27 +60,17 @@ void uart_communication_fsm()
 		}
 
 
-
 		if(send_signal)
 		{
+			HAL_UART_Transmit(&huart1,(uint8_t*)"\r!ADC=",6,1000);
 
+			char *str = "0";
 
-			{
+			HAL_UART_Transmit(&huart1,(uint8_t*)str, strlen(itoa(adc_val,str,10)),1000);
 
-				HAL_UART_Transmit(&huart1,(uint8_t*)"\r!ADC=",6,1000);
+			HAL_UART_Transmit(&huart1,(uint8_t*)" ",1,1000);
 
-				char *str = "0";
-
-
-				HAL_UART_Transmit(&huart1,(uint8_t*)str, strlen(itoa(adc_val,str,10)),1000);
-
-				HAL_UART_Transmit(&huart1,(uint8_t*)" ",1,1000);
-
-				HAL_UART_Transmit(&huart1,(uint8_t*)"#\r",2,1000);
-
-			}
-
-
+			HAL_UART_Transmit(&huart1,(uint8_t*)"#\r",2,1000);
 
 			send_signal = 0;
 
@@ -92,16 +78,10 @@ void uart_communication_fsm()
 		}
 
 
-
-
-
-
-
 		if(timer_flag)
 		{
 			send_signal = 1;
 		}
-
 
 
 	}
