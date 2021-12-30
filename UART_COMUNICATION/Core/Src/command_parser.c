@@ -101,7 +101,7 @@ void command_parser_fsm()
 
 					index_buffer = (index_buffer == 0)?29:index_buffer - 1;
 
-					if(buffer[index_buffer] != ack[i])
+					if(ack[i] != buffer[index_buffer])
 					{
 
 						char *str1 = "\rInvalid ack syntax\r";
