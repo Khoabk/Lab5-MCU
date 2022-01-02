@@ -15,10 +15,7 @@
 
 #include "string.h"
 
-#include "timer.h"
-
 #include "stdio.h"
-
 
 uint8_t request[]={'!','R','S','T','#'};
 
