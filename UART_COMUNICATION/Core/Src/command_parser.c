@@ -41,12 +41,6 @@ uint8_t state1 = 0;
 
 void command_parser_fsm()
 {
-
-
-
-
-
-
 	switch(state1)
 	{
 
@@ -82,15 +76,12 @@ void command_parser_fsm()
 
 				state1 = 1;
 
-
 			}
 
 			break;
 		}
 		case 1:
 		{
-
-
 			if(temp == '#')
 			{
 
@@ -114,25 +105,13 @@ void command_parser_fsm()
 					i--;
 
 				}
-
-
 				receive_signal = 1;
 
 				state1 = 0;
-
 			}
-
-
+			
 			break;
 		}
 		default: break;
-
-
 	}
-
-
-
-
-
-
 }
