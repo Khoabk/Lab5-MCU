@@ -69,9 +69,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
 {
 	if(htim->Instance == TIM2)
 	{
-
 		timer_run();
-
 	}
 }
 
@@ -84,10 +82,8 @@ int count=0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-
 	if(huart->Instance == USART2)
 	{
-
 		buffer[index_buffer++] = temp;
 
 		if(index_buffer == 30)index_buffer = 0;
@@ -99,7 +95,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		HAL_UART_Receive_IT(&huart2,&temp, 1);
 
 		//HAL_UART_Transmit(&huart1,&temp,1,1000);
-
 	}
 }
 
@@ -151,8 +146,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-
-
   ADC1->CR2 |= ADC_CR2_ADON | ADC_CR2_CONT;
 
   HAL_Delay(1);
@@ -166,16 +159,11 @@ int main(void)
   HAL_Delay(1);
 
 
-  //uint8_t sth;
-
-
 HAL_TIM_Base_Start_IT(&htim2);
 
 HAL_UART_Receive_IT(&huart2,&temp, 1);
 
-
-
-
+	
   while (1)
   {
 
