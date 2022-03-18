@@ -90,8 +90,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 		buffer[index_buffer++] = temp;
 
-
-
 		if(index_buffer == 30)index_buffer = 0;
 
 		buffer_flag = 1;
